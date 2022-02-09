@@ -5,8 +5,14 @@ const app = express();
 // app.set('port', process.env.PORT || 3000)
 const port = process.env.PORT || 3000;
 
+app.use(express.static('./public'));
+
 // Set Routes
 app.get("", (req, res) => {
+  res.render("index", { text: "This is EJS" });
+});
+
+app.get("/about", (req, res) => {
   res.render("index", { text: "This is EJS" });
 });
 
