@@ -8,12 +8,25 @@ const port = process.env.PORT || 3000;
 app.use(express.static('./public'));
 
 // Set Routes
-app.get("", (req, res) => {
-  res.render("index", { text: "This is EJS" });
+// send static file as response
+app.get("/", (req, res) => {
+  // res.render("index", { text: "This is EJS" });
+  res.type('text/html');
+  res.sendFile('./public/home.html');
 });
 
+// send plain text response
 app.get("/about", (req, res) => {
-  res.render("index", { text: "This is EJS" });
+  // res.render("index", { text: "This is EJS" });
+  res.type('text/plain');
+  res.send('About page');
+});
+
+// define 404 handler
+app.use((req,res) => {
+  res.type('text/plain');
+  res.status(404);
+  res.send('404 - Not found');
 });
 
 // let listener = app.listen();
