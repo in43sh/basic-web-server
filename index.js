@@ -5,14 +5,14 @@ const app = express();
 // app.set('port', process.env.PORT || 3000)
 const port = process.env.PORT || 3000;
 
-app.use(express.static('./public'));
+app.use(express.static('./public/views'));
 
 // Set Routes
 // send static file as response
 app.get("/", (req, res) => {
-  // res.render("index", { text: "This is EJS" });
-  res.type('text/html');
-  res.sendFile('./public/home.html');
+  res.render("", { text: "This is EJS" });
+  // res.type('text/html');
+  // res.sendFile('/index.html');
 });
 
 // send plain text response
