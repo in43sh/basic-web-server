@@ -7,18 +7,16 @@ const port = process.env.PORT || 3000;
 
 
 // set routes
-// send static file as response
 app.get("/", (req, res) => {
-  // res.render("", { text: "This is EJS" });
-  // res.type('text/html');
   res.sendFile('./public/views/index.html', { root: __dirname });
 });
 
-// send plain text response
 app.get("/about", (req, res) => {
-  // res.render("index", { text: "This is EJS" });
-  // res.type('text/plain');
   res.sendFile('./public/views/about.html', { root: __dirname });
+});
+
+app.get("/resume", (req, res) => {
+  res.sendFile('./public/views/resume.html', { root: __dirname });
 });
 
 // define 404 handler
