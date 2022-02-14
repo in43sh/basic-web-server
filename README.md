@@ -1,4 +1,4 @@
-# Web server
+# Web server for IT122 Assignment
 
 Basic web server.
 
